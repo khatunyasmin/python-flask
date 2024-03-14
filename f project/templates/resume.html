@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='resume1.css') }}">
+
+</head>
+<body>
+    <!--<h1>Welcome  <span style="color:red;">{{x1}}</span> to templates in flask.</h1>-->
+
+    <div class="container">
+        <header>
+            <h1>{{ profile.name }}</h1>
+            <h2>{{ profile.title }}</h2>
+        </header>
+
+        <section class="about">
+            <h3>About Me</h3>
+            <p>{{ profile.bio }}</p>
+        </section>
+
+        <section class="skills">
+            <h3>Skills</h3>
+            <ul>
+                {% for skill in profile.skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h3>Contact</h3>
+            <p>Email: {{ profile.contact.email }}</p>
+            <p>Phone: {{ profile.contact.phone }}</p>
+        </section>
+    </div>
+</body>
+</html>
